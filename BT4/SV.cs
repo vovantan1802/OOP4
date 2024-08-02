@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,27 +8,31 @@ namespace BT4
 {
     abstract class SV
     {
-        protected string hoTen;
-        protected int namSinh;
+        private string hoTen;
+        protected string namSinh;
         protected float dtb;
+
+        public string HoTen { get => hoTen; set => hoTen = value; }
 
         public SV()
         {
-            this.hoTen = "";
-            this.namSinh = 0;
-            this.dtb = 0;
+            this.HoTen = "";
+            this.namSinh = "";
+            this.dtb = 0.0f;
         }
 
-        public SV(string hoTen, int namSinh, float dtb)
+        public SV(string hoTen, string namSinh, float dtb)
         {
-            this.hoTen = hoTen;
+            this.HoTen = hoTen;
             this.namSinh = namSinh;
             this.dtb = dtb;
         }
 
         public virtual void hienThi()
         {
-            Console.WriteLine("{0}-{1}-{2}", hoTen, namSinh, dtb);
+            Console.WriteLine("Ho ten: {0}", HoTen);
+            Console.WriteLine("Nam sinh: {0}", namSinh);
+            Console.WriteLine("Diem trung binh: {0}", dtb);
         }
 
         public virtual string loaiSV()
