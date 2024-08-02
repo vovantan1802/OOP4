@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,41 +6,41 @@ using System.Threading.Tasks;
 
 namespace BT4
 {
-    internal class SVSP:SV
+    abstract class SV
     {
-        protected string noiTT;
-        protected float diemTT;
+        private string hoTen;
+        protected string namSinh;
+        protected float dtb;
 
-        public SVSP()
+        public string HoTen { get => hoTen; set => hoTen = value; }
+
+        public SV()
         {
-            this.noiTT = "";
-            this.diemTT = 0;
+            this.HoTen = "";
+            this.namSinh = "";
+            this.dtb = 0.0f;
         }
 
-        public SVSP(string hoTen, int namSinh, float dtb, string noiTT, float diemTT) : base(hoTen, namSinh, dtb)
+        public SV(string hoTen, string namSinh, float dtb)
         {
-            this.noiTT = noiTT;
-            this.diemTT = diemTT;
+            this.HoTen = hoTen;
+            this.namSinh = namSinh;
+            this.dtb = dtb;
         }
 
-        public override void hienThi()
+        public virtual void hienThi()
         {
-            base.hienThi();
-            Console.WriteLine("TT: {0}-{1}", noiTT, diemTT);
+            Console.WriteLine("Ho ten: {0}", HoTen);
+            Console.WriteLine("Nam sinh: {0}", namSinh);
+            Console.WriteLine("Diem trung binh: {0}", dtb);
         }
 
-        public override string loaiSV()
+        public virtual string loaiSV()
         {
-            return "SVSP";
+            return "";
         }
 
-        public override string duocTN()
-        {
-            if (diemTT > 4)
-            {
-                return "TN";
-            }
-            return "chưa TN";
-        }
+        public abstract string duocTN();
+        
     }
 }
