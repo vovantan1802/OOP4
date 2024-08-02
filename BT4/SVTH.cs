@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +14,10 @@ namespace BT4
         public SVTH()
         {
             this.tenDT = "";
-            this.diemDT = 0;
+            this.diemDT = 0.0f;
         }
 
-        public SVTH(string hoTen, int namSinh, float dtb, string tenDt, float diemDT) : base(hoTen, namSinh, dtb)
+        public SVTH(string hoTen, string namSinh, float dtb, string tenDt, float diemDT) : base(hoTen, namSinh, dtb)
         {
             this.tenDT = tenDT;
             this.diemDT = diemDT;
@@ -26,8 +26,10 @@ namespace BT4
         public override void hienThi()
         {
             base.hienThi();
-            Console.WriteLine("DT: {0}-{1}", tenDT, diemDT);
+            Console.WriteLine("Noi thuc tap {0}",tenDT);
+            Console.WriteLine("Diem thuc tap: {0}", diemDT);
         }
+
 
         public override string loaiSV()
         {
