@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,34 +16,28 @@ namespace BT4
             list = new ArrayList();
             
         }
-        public void them(SV a)
+        public void them(SV sv)
         {
-            list.Add(a);
-        }
-        public void lietKe(string loaisv)
-        {
-            if (loaisv == "SVSP")
-                Console.WriteLine("SVSP--------------------");
+            if (list.Contains(sv))
             {
-                foreach (SV a in list)
-                    if (a.loaiSV().Equals(loaisv))
-                        a.hienThi();
+                Console.WriteLine("Sinh vien da ton tai:");
+                Console.ReadLine();
             }
-
-            if (loaisv == "SVTH")
-                Console.WriteLine("SVTH--------------------");
+            else
             {
-                foreach (SV a in list)
-                    if (a.loaiSV().Equals(loaisv))
-                        a.hienThi();
+                list.Add(sv);
+                Console.WriteLine("Da them sinh vien ");
+                Console.ReadLine();
             }
+            
         }
 
-        public void lietKe()
+        public void hienthi()
         {
-            foreach(SV a in list)
+            foreach(SV sv in list)
             {
-                a.hienThi();
+                Console.WriteLine("Ho ten: {0}", sv.HoTen);
+                Console.ReadLine();
             }
         }
     }
